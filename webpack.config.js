@@ -5,6 +5,7 @@ const fronted_base_dir = "src/app/frontend"
 
 module.exports = {
     entry: path.resolve(__dirname, fronted_base_dir, './index.tsx'),
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -25,6 +26,7 @@ module.exports = {
             }
         ]
     },
+    target: 'electron-renderer',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, fronted_base_dir, 'dist')
