@@ -530,3 +530,4 @@ INSERT INTO
     INNER JOIN GradeTemp ON UserID = GradeTemp.Owner_UserID;
 
 DROP TEMPORARY TABLE GradeTemp;
+

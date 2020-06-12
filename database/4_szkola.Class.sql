@@ -22,3 +22,4 @@ insert into szkola.Class (StartYear, GraduationYear, Preceptor_UserID, ProfileID
 (2019, 2028, 757, 2),
 (2019, 2028, 761, 3),
 (2019, 2028, 798, 4);
+

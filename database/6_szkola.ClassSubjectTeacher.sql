@@ -88,3 +88,4 @@ INSERT INTO szkola.ClassSubjectTeacher (SubjectID, ClassID, Teacher_UserID) VALU
 INSERT INTO szkola.ClassSubjectTeacher (SubjectID, ClassID, Teacher_UserID) VALUES (21, 24, 797);
 INSERT INTO szkola.ClassSubjectTeacher (SubjectID, ClassID, Teacher_UserID) VALUES (9, 11, 798);
 INSERT INTO szkola.ClassSubjectTeacher (SubjectID, ClassID, Teacher_UserID) VALUES (13, 8, 800);
+

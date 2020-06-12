@@ -1,3 +1,5 @@
+USE szkola;
+
 insert into szkola.User (Name, Surname, Email, PasswordHash, Address, UserRoleID, PESEL) values ('Bayard', 'Blaxill', 'bblaxill0@rakuten.co.jp', '$2b$04$iQu6MkQgzjJTGd6YnCKfDuW/ag.Ewrr3XQE8c5hU14Io68E5UyEQ.', '94 Pine View Plaza', 1	, '50040909988'),
  ('Frans', 'Georgiades', 'fgeorgiades1@cisco.com', '$2b$04$iQu6MkQgzjJTGd6YnCKfDuW/ag.Ewrr3XQE8c5hU14Io68E5UyEQ.', '63375 Fuller Street', 1	, '43090998493'),
  ('Baxie', 'Wontner', 'bwontner2@soup.io', '$2b$04$iQu6MkQgzjJTGd6YnCKfDuW/ag.Ewrr3XQE8c5hU14Io68E5UyEQ.', '841 Fair Oaks Avenue', 1	, '80080579975'),
@@ -798,3 +800,4 @@ insert into szkola.User (Name, Surname, Email, PasswordHash, Address, UserRoleID
  ('Pippo', 'Benzie', 'pbenzie2p@hhs.gov', '$2b$04$iQu6MkQgzjJTGd6YnCKfDuW/ag.Ewrr3XQE8c5hU14Io68E5UyEQ.', '56151 Weeping Birch Hill', 2	, '23102392192'),
  ('Sayre', 'Posselt', 'sposselt2q@nymag.com', '$2b$04$iQu6MkQgzjJTGd6YnCKfDuW/ag.Ewrr3XQE8c5hU14Io68E5UyEQ.', '2 Schiller Trail', 2	, '73032600731'),
  ('Suzy', 'Arnall', 'sarnall2r@google.co.uk', '$2b$04$iQu6MkQgzjJTGd6YnCKfDuW/ag.Ewrr3XQE8c5hU14Io68E5UyEQ.', '9031 Sachs Center', 2	, '54060462052');
+

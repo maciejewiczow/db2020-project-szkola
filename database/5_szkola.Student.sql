@@ -698,3 +698,4 @@ insert into szkola.Student (UserID, ClassID) values (1, 6),
 (698, 20),
 (699, 16),
 (700, 3);
+
