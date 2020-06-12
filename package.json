@@ -9,7 +9,8 @@
         "dev": "concurrently \"webpack-dev-server --mode development\" \"npm run compile-backend -- --watch\" \"wait-on http://localhost:8080 && npm start\"",
         "compile-backend": "tsc --project tsconfig.backend.json --outDir ./dist --rootDir ./src/app",
         "electron": "npm run compile-backend && npm start",
-        "start": "electron ./dist/index.js"
+        "start": "electron ./dist/index.js",
+        "postinstall": "electron-rebuild -f"
     },
     "repository": {
         "type": "git",
@@ -47,6 +48,7 @@
         "electron": "^9.0.3",
         "electron-is-dev": "^1.2.0",
         "electron-react-devtools": "^0.5.3",
+        "electron-rebuild": "^1.11.0",
         "electron-redux-devtools": "^0.3.4",
         "file-loader": "^6.0.0",
         "google-fonts-webpack-plugin": "^0.4.4",
