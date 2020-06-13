@@ -9,7 +9,7 @@
         "dev": "concurrently \"webpack-dev-server --mode development\" \"npm run compile-backend -- --watch\" \"wait-on http://localhost:8080 && npm start\"",
         "compile-backend": "tsc --project tsconfig.backend.json --outDir ./dist --rootDir ./src/app",
         "electron": "npm run compile-backend && npm start",
-        "start": "electron ./dist/index.js",
+        "start": "electron ./dist/app/index.js",
         "postinstall": "electron-rebuild -f"
     },
     "repository": {
@@ -35,6 +35,9 @@
         "mysql": "^2.18.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
+        "react-icons": "^3.10.0",
+        "react-redux": "^7.2.0",
+        "react-router": "^5.2.0",
         "redux": "^4.0.5",
         "styled-components": "^5.1.1"
     },
@@ -43,6 +46,8 @@
         "@types/mysql": "^2.15.13",
         "@types/react": "^16.9.35",
         "@types/react-dom": "^16.9.8",
+        "@types/react-redux": "^7.1.9",
+        "@types/react-router": "^5.1.7",
         "@types/styled-components": "^5.1.0",
         "concurrently": "^5.2.0",
         "electron": "^9.0.3",
@@ -51,7 +56,6 @@
         "electron-rebuild": "^1.11.0",
         "electron-redux-devtools": "^0.3.4",
         "file-loader": "^6.0.0",
-        "google-fonts-webpack-plugin": "^0.4.4",
         "html-loader": "^1.1.0",
         "html-webpack-plugin": "^4.3.0",
         "ts-loader": "^7.0.5",
