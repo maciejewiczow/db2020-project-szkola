@@ -4006,28 +4006,39 @@ insert into szkola.GradeTemp (GradeValueID, Owner_UserID) values (9, 161);
 
 -- this query takes generated random values from temporary table, and adds random subject and it's teacher to each grade,
 -- based on grade owner's class ID, and inserts it into final destination table Grade
+-- INSERT INTO
+--     Grade
+--         (Owner_UserID, SubjectID, Issuer_UserID, GradeValueID)
+--     SELECT
+--         UserID AS Owner_UserID,
+--         SUBSTRING_INDEX(RandomSubjectTeacher, ';', 1) AS SubjectID,
+--         SUBSTRING_INDEX(SUBSTRING_INDEX(RandomSubjectTeacher, ';', 2), ';', -1)AS Issuer_UserID,
+--         GradeValueID
+--     FROM
+--     (
+--         SELECT User.UserID,
+--             SUBSTRING_INDEX(
+--                     GROUP_CONCAT(
+--                             CONCAT(ClassSubjectTeacher.SubjectID, ';', ClassSubjectTeacher.Teacher_UserID) order by RAND(),
+--                             ',')
+--                 , ',', 1) AS RandomSubjectTeacher
+--         FROM User
+--             INNER JOIN Student ON Student.UserID = User.UserID
+--             INNER JOIN ClassSubjectTeacher ON ClassSubjectTeacher.ClassID = Student.ClassID
+--         GROUP BY User.UserID
+--     ) innerQ
+--     INNER JOIN GradeTemp ON UserID = GradeTemp.Owner_UserID;
 INSERT INTO
     Grade
         (Owner_UserID, SubjectID, Issuer_UserID, GradeValueID)
     SELECT
-        UserID AS Owner_UserID,
-        SUBSTRING_INDEX(RandomSubjectTeacher, ';', 1) AS SubjectID,
-        SUBSTRING_INDEX(SUBSTRING_INDEX(RandomSubjectTeacher, ';', 2), ';', -1)AS Issuer_UserID,
+    Owner_UserID,
+    ClassSubjectTeacher.SubjectID,
+    ClassSubjectTeacher.Teacher_UserID AS Issuer_UserID,
         GradeValueID
-    FROM
-    (
-        SELECT User.UserID,
-            SUBSTRING_INDEX(
-                    GROUP_CONCAT(
-                            CONCAT(ClassSubjectTeacher.SubjectID, ';', ClassSubjectTeacher.Teacher_UserID) order by RAND(),
-                            ',')
-                , ',', 1) AS RandomSubjectTeacher
         FROM User
             INNER JOIN Student ON Student.UserID = User.UserID
             INNER JOIN ClassSubjectTeacher ON ClassSubjectTeacher.ClassID = Student.ClassID
-        GROUP BY User.UserID
-    ) innerQ
-    INNER JOIN GradeTemp ON UserID = GradeTemp.Owner_UserID;
+    INNER JOIN GradeTemp ON User.UserID = GradeTemp.Owner_UserID
 
 DROP TEMPORARY TABLE GradeTemp;
-
