@@ -7,7 +7,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "concurrently \"webpack-dev-server --mode development\" \"npm run compile-backend -- --watch\" \"wait-on http://localhost:8080 && npm start\"",
-        "compile-backend": "tsc --project tsconfig.backend.json --outDir ./dist --rootDir ./src/app",
+        "compile-backend": "tsc --project tsconfig.backend.json --outDir ./dist",
         "electron": "npm run compile-backend && npm start",
         "start": "electron ./dist/app/index.js",
         "postinstall": "electron-rebuild -f"
@@ -32,6 +32,7 @@
     "homepage": "https://github.com/phajder-databases/db2020-project-szkola-podstawowa-25#readme",
     "dependencies": {
         "bcrypt": "^5.0.0",
+        "mustache": "^4.0.1",
         "mysql": "^2.18.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -43,6 +44,7 @@
     },
     "devDependencies": {
         "@types/bcrypt": "^3.0.0",
+        "@types/mustache": "^4.0.1",
         "@types/mysql": "^2.15.13",
         "@types/react": "^16.9.35",
         "@types/react-dom": "^16.9.8",
