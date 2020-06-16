@@ -13,9 +13,6 @@ const createWindow = () => {
     if (isDev) {
         window.loadURL(`http://localhost:${process.env.FRONT_WEBPACK_PORT || 8080}`);
         window.webContents.openDevTools();
-        // FIXME: can only be installed from render thread
-        // require("electron-react-devtools").install()
-        // require("electron-redux-devtools").install()
     }
     else
         window.loadFile("./public/index.html");
