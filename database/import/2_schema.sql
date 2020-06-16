@@ -5,6 +5,7 @@ create table if not exists szkola.GradeValue
     NumericValue  float       not null,
     SymbolicValue varchar(3)  not null,
     Name          varchar(25) not null,
+    ShortName     varchar(7)  not null,
     constraint GradeValue_SymbolicValue_uindex
         unique (SymbolicValue)
 )
@@ -71,6 +72,8 @@ create table if not exists szkola.User
     Address      varchar(200) null,
     UserRoleID   int          not null,
     PESEL        char(11)     not null,
+    constraint User_Email_uindex
+        unique (Email),
     constraint User_PESEL_uindex
         unique (PESEL),
     constraint User_UserRole_UserRoleID_fk
@@ -114,10 +117,12 @@ create table if not exists szkola.Grade
 (
     GradeID       int auto_increment
         primary key,
-    GradeValueID  int not null,
-    SubjectID     int not null,
-    Issuer_UserID int not null,
-    Owner_UserID  int not null,
+    GradeValueID  int                                 not null,
+    SubjectID     int                                 not null,
+    Issuer_UserID int                                 not null,
+    Owner_UserID  int                                 not null,
+    Weight        float     default 1                 not null,
+    IssuedAt      timestamp default CURRENT_TIMESTAMP null,
     constraint Grade_GradeValue_GradeValueID_fk
         foreign key (GradeValueID) references szkola.GradeValue (GradeValueID),
     constraint Grade_Subject_SubjectID_fk

@@ -4042,3 +4042,8 @@ INSERT INTO
     INNER JOIN GradeTemp ON User.UserID = GradeTemp.Owner_UserID
 
 DROP TEMPORARY TABLE GradeTemp;
+
+-- add values for Weights and timestamps
+UPDATE Grade SET
+    IssuedAt = DATE_SUB(NOW(), INTERVAL RAND()*70000 MINUTE)
+    Weight = 0.5 + RAND()*3.5; -- random [0.5, 4.0]
