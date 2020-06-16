@@ -9,6 +9,10 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(jpg|png|gif|svg|tiff)$/,
+                use:  'file-loader'
+            },
+            {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
