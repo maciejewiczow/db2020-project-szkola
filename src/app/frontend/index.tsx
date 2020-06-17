@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createGlobalStyle } from "styled-components";
+import { Provider } from "react-redux";
 import isDev from "electron-is-dev"
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from "./App";
+import store from './store'
 
 const Global = createGlobalStyle`
     *, *::after, *::before {
@@ -33,10 +34,10 @@ if (isDev) {
 
 ReactDOM.render(
     (
-        <>
+        <Provider store={store}>
             <Global />
             <App />
-        </>
+        </Provider>
     ),
     document.getElementById("root")
 )

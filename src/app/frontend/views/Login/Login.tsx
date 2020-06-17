@@ -1,10 +1,17 @@
 import React from 'react'
 import Group from "react-bootstrap/FormGroup"
+import { connect, MapDispatchToProps } from "react-redux";
+
+import { updateCurrentUser } from "../../store/User/actions";
 
 import * as P from './parts'
+import { CurrentUserState } from 'frontend/store/User/store';
 
-const Login: React.FC = () => {
+interface LoginViewActionProps {
+    updateCurrenUser: (user: Partial<CurrentUserState>) => void
+}
 
+const LoginView: React.FC<LoginViewActionProps> = () => {
 
     return (
         <P.Wrapper>
@@ -24,4 +31,10 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+const mapDispatchToProps: MapDispatchToProps<LoginViewActionProps, {}> = (dispatch) => ({
+    updateCurrenUser: user => {
+        dispatch(updateCurrentUser(user));
+    }
+})
+
+export default connect(null, mapDispatchToProps)(LoginView);
