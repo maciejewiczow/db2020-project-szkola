@@ -4,7 +4,7 @@
     "insertIntoTable": "INSERT INTO {{tableName}} {{fieldList}} VALUES ?",
     "updateByID": "UPDATE {{tableName}} SET ? WHERE {{tableName}}ID = ?",
     "getAll": "Select * from {{tableName}}",
-    "getUserByEmailPassword": "SELECT * FROM User WHERE Email = ? AND PasswordHash = ?",
+    "getUserByEmail": "SELECT * FROM User WHERE Email = ?",
     "getUserPermissions": "SELECT P.* FROM User INNER JOIN RolePermission ON User.UserRoleID = RolePermission.UserRoleID INNER JOIN Permission P on RolePermission.PermissionID = P.PermissionID WHERE User.UserID = ?",
     "verifyUserPermission": "SELECT P.* FROM User INNER JOIN RolePermission ON User.UserRoleID = RolePermission.UserRoleID INNER JOIN Permission P on RolePermission.PermissionID = P.PermissionID WHERE User.UserID = ? AND P.PermissionID = ?",
     "getClassSubjectGrades": "SELECT GradeID, Student.UserID, GV.NumericValue, GV.SymbolicValue, GV.Name FROM Grade INNER JOIN GradeValue GV on Grade.GradeValueID = GV.GradeValueID INNER JOIN Student ON Student.UserID = Grade.Owner_UserID WHERE Student.ClassID = ? AND Grade.SubjectID = ?",
