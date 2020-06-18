@@ -2,14 +2,12 @@
     "name": "db2020-project-szkola-podstawowa-25",
     "version": "1.0.0",
     "description": "Aplikacja szkoły podstawowej na elektronie",
-    "main": "index.ts",
+    "main": "./src/app/backend/index.ts",
     "private": "true",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "concurrently \"webpack-dev-server --mode development\" \"npm run compile-backend -- --watch\" \"wait-on http://localhost:8080 && npm start\"",
-        "compile-backend": "tsc --project tsconfig.backend.json --outDir ./dist",
-        "electron": "npm run compile-backend && npm start",
-        "start": "electron ./dist/app/index.js",
+        "dev": "electron-webpack dev",
+        "build": "electron-webpack",
         "postinstall": "electron-rebuild -f"
     },
     "repository": {
@@ -65,6 +63,7 @@
         "electron-react-devtools": "^0.5.3",
         "electron-rebuild": "^1.11.0",
         "electron-redux-devtools": "^0.3.4",
+        "electron-webpack": "^2.8.2",
         "file-loader": "^6.0.0",
         "html-loader": "^1.1.0",
         "html-webpack-plugin": "^4.3.0",

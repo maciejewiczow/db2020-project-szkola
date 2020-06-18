@@ -1,0 +1,23 @@
+{
+    "commonSourceDirectory": "src/app/common",
+    "whiteListedModules": [
+      "react",
+        "react-bootstrap",
+        "react-dom",
+        "react-icons",
+        "react-redux",
+        "react-router",
+        "react-router-dom",
+        "redux",
+        "redux-saga",
+        "styled-components"
+    ],
+
+    "main": {
+      "sourceDirectory": "src/app/backend"
+    },
+
+    "renderer": {
+      "sourceDirectory": "src/app/frontend"
+    }
+}
