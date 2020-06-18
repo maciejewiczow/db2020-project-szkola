@@ -10,10 +10,10 @@ import { CurrentUserState } from 'frontend/store/User/store';
 import { InteropService } from '../../../common/services';
 
 interface LoginViewActionProps {
-    updateCurrenUser: (user: Partial<CurrentUserState>) => void
+    updateCurrentUser: (user: Partial<CurrentUserState>) => void
 }
 
-const LoginView: React.FC<LoginViewActionProps> = ({ updateCurrenUser }) => {
+const LoginView: React.FC<LoginViewActionProps> = ({ updateCurrentUser }) => {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [error, setError] = useState<string>("")
@@ -24,14 +24,15 @@ const LoginView: React.FC<LoginViewActionProps> = ({ updateCurrenUser }) => {
         event.preventDefault()
         setError("")
         try {
-            const user = await InteropService.verifyCredentials(email, password);
+            const {PasswordHash, ...user} = await InteropService.verifyUserCredentials(email, password);
 
             updateCurrentUser(user)
+            await InteropService.maximizeWindow();
             history.push('/dashboard')
         } catch(e) {
             setError("Niepoprawne dane logowania")
         }
-    }, [password, email])
+    }, [password, email, updateCurrentUser])
 
     return (
         <P.Wrapper>
@@ -63,9 +64,7 @@ const LoginView: React.FC<LoginViewActionProps> = ({ updateCurrenUser }) => {
 };
 
 const mapDispatchToProps: MapDispatchToProps<LoginViewActionProps, {}> = (dispatch) => ({
-    updateCurrenUser: user => {
-        dispatch(updateCurrentUser(user));
-    }
+    updateCurrentUser: user => dispatch(updateCurrentUser(user))
 })
 
 export default connect(null, mapDispatchToProps)(LoginView);
