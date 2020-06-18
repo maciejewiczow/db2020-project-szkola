@@ -58,7 +58,7 @@ Wszystkie zapytania używane w aplikacji znajdują się w pliku [queries.json](.
 
 1. Logowanie
     ```SQL
-    SELECT * FROM User WHERE Email = ? AND PasswordHash = ?;
+    SELECT * FROM User WHERE Email = ?;
     ```
 2. Zmiana hasła
    Parametr tableName - zmieniany przed użyciem zapytania na nazwę odpowiedniej tabeli. Pytajnik po SET zostaje zamieniony na zestaw wyrażeń `key = 'value'` ([dokumentacja](https://github.com/mysqljs/mysql#escaping-query-values))
