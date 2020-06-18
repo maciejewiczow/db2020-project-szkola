@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config();
 import { app, BrowserWindow } from "electron";
 import isDev from "electron-is-dev";
 
