@@ -10,7 +10,7 @@ const App: React.FC = () => (
                 <h1>Dashboard</h1>
                 <Link to="/">Back to login</Link>
             </Route>
-            <Route path="/" component={Views.Login} />
+            <Route path="/" component={Views.LoginView} />
         </Switch>
     </HashRouter>
 );

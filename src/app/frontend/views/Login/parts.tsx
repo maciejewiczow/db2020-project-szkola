@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import React from 'react'
+import styled, { css } from 'styled-components'
 import Form from "react-bootstrap/Form"
 import BsButton from "react-bootstrap/Button"
 
@@ -17,9 +18,9 @@ export const Wrapper = styled.div`
     background-position: center center;
 `
 
-export const Modal = styled(Form)`
+export const ModalForm = styled(Form)`
     background: rgba(4%, 6.3%, 9.7%, 0.8);
-    box-shadow: 0 10px 12px 3px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 12px 1px rgba(0,0,0,0.6);
 
     backdrop-filter: saturate(70%) blur(8px);
 
@@ -41,6 +42,11 @@ export const Modal = styled(Form)`
     & > :last-child {
         margin-bottom: 0;
     }
+
+    @media(max-width: 370px) {
+        width: 100%;
+        height: 100%;
+    }
 `
 
 export const Title = styled.span`
@@ -52,12 +58,23 @@ export const Label = styled(Form.Label)`
     color: #6c757d;
 `
 
-export const Input = styled(Form.Control)`
+interface InputProps {
+    hasError: boolean
+}
+
+// spread operator trick to avoid prop passing error
+export const Input = styled(({ hasError, ...rest }) => <Form.Control {...rest} />)<InputProps>`
     background: transparent;
+    transition: background 0.15s ease-in-out;
 
     border-width: 0;
     border-bottom: 2px solid rgba(255,255,255,0.3);
     border-radius: 0;
+
+    ${({hasError}) => hasError && css`
+        border-color: rgba(86.3%, 20.8%, 27.1%, 0.7);
+    `}
+
     padding: 1px 2px;
     height: auto;
 
@@ -74,10 +91,16 @@ export const Input = styled(Form.Control)`
 
 export const Button = styled(BsButton)`
     border-radius: 2px;
-    background: rgb(18.5%, 29%, 41%);
+    background: #2F4A69;
     border-width: 0;
 
     &:focus, &:hover {
-        background: rgb(13.2%, 36.5%, 63%);
+        background: #225DA1;
     }
+`
+
+export const ErrorLabel = styled.span`
+    margin-top: 2px;
+    color: #dc3545;
+    display: inline-block;
 `
