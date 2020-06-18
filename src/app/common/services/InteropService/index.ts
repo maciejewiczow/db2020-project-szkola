@@ -1,4 +1,4 @@
-import registerVerify from './verify'
+import { register as registerVerify, verifyCredentials} from './verify'
 
 export enum InteropEvents {
     verifyCredentials = 'verify-credentials'
@@ -12,7 +12,8 @@ const registerListeners = () => {
 
 export default {
     InteropEvents,
-    registerListeners
+    registerListeners,
+    verifyCredentials
 }
 
 export { VerifyUserArgs } from "./verify";
