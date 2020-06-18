@@ -1,9 +1,9 @@
 import { FieldInfo } from "mysql";
-import { User } from "../../schema";
+import { User } from "../../../common/schema";
 
 import database from './connect'
 
-import { getUserByEmail as getUserQueryString } from "../../../sql/queries.json";
+import { getUserByEmail as getUserQueryString } from "../../../../sql/queries.json";
 
 export interface QueryResult<T = any> {
     fields: FieldInfo[]
