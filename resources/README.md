@@ -362,7 +362,7 @@ Wszystkie zapytania używane w aplikacji znajdują się w pliku [queries.json](.
     ```
 
 ## Aplikacja
-Jest to apliacja okienkowa, napisana za pomoca biblioteki React.js oraz Electron.
+Jest to apliacja okienkowa, napisana za pomoca biblioteki React.js oraz Electron. W obecnej postaci pozwala na zalogowanie się za pomocą adresu email i hasła, oraz na sprawdzenie swojego planu zajęć.
 
 ## Dodatkowe uwagi
 W tej sekcji możecie zawrzeć informacje, których nie jesteście w stanie przypisać do pozostałych. Mogą to być również jakieś komentarze, wolne uwagi, itp.
