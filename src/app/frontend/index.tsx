@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createGlobalStyle } from "styled-components";
 import { Provider } from "react-redux";
-import isDev from "electron-is-dev"
+// import isDev from "electron-is-dev"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from "./App";
@@ -25,12 +26,6 @@ const Global = createGlobalStyle`
         height: 100%;
     }
 `
-
-if (isDev) {
-    // FIXME: "Error: extension directory not found"
-    // require("electron-react-devtools").install()
-    // require("electron-redux-devtools").install()
-}
 
 // hacky hack
 const link = document.createElement('link');
