@@ -7,7 +7,7 @@ import { updateCurrentUser } from "../../store/User/actions";
 
 import * as P from './parts'
 import { CurrentUserState } from 'frontend/store/User/store';
-import { verifyCredentials } from '../../interop';
+import { InteropService } from '../../../common/services';
 
 interface LoginViewActionProps {
     updateCurrenUser: (user: Partial<CurrentUserState>) => void
@@ -24,19 +24,13 @@ const LoginView: React.FC<LoginViewActionProps> = ({ updateCurrenUser }) => {
         event.preventDefault()
         setError("")
         try {
-            console.log("blep")
-            const res = await verifyCredentials(email, password);
-            console.log("blop")
+            const user = await InteropService.verifyCredentials(email, password);
 
-            console.log(res);
-
+            updateCurrentUser(user)
+            history.push('/dashboard')
         } catch(e) {
-            setError(e.message)
+            setError("Niepoprawne dane logowania")
         }
-        // if (false) {
-        //     history.push('/dashboard')
-        // } else {
-        // }
     }, [password, email])
 
     return (
