@@ -1,19 +1,23 @@
-import { register as registerVerify, verifyCredentials} from './verify'
+import { register as registerVerify, verifyUserCredentials} from './verifyUserCredentials'
+import { register as registerMaximize, maximizeWindow } from "./maximizeWindow";
 
 export enum InteropEvents {
-    verifyCredentials = 'verify-credentials'
+    verifyCredentials = 'verify-credentials',
+    maximize = 'maximize-window'
 }
 
 const registerListeners = () => {
     [
-        registerVerify
+        registerVerify,
+        registerMaximize
     ].forEach(reg => reg())
 }
 
 export default {
     InteropEvents,
     registerListeners,
-    verifyCredentials
+    verifyUserCredentials,
+    maximizeWindow
 }
 
-export { VerifyUserArgs } from "./verify";
+export { VerifyUserArgs } from "./verifyUserCredentials";

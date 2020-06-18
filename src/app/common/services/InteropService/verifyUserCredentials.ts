@@ -16,7 +16,7 @@ export const register = () => {
     )
 }
 
-export const verifyCredentials = async (email: string, password: string) => {
+export const verifyUserCredentials = async (email: string, password: string) => {
     console.log('Call from renderer')
 
     // FIXME: this works only because of a change in electron-better-ipc method!! Will break at next npm install
