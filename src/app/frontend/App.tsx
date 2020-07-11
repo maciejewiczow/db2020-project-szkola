@@ -6,10 +6,7 @@ import * as Views from './Views';
 const App: React.FC = () => (
     <HashRouter>
         <Switch>
-            <Route path="/dashboard">
-                <h1>Dashboard</h1>
-                <Link to="/">Back to login</Link>
-            </Route>
+            <Route path="/dashboard" component={Views.Dashboard} />
             <Route path="/" component={Views.LoginView} />
         </Switch>
     </HashRouter>
