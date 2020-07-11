@@ -1,11 +1,6 @@
 # Temat projektu
 Tematem projektu jest aplikacja obsługująca szkołę podstawową.
 
-
-| Nazwisko i imię | Wydział | Kierunek | Semestr | Grupa | Rok akademicki |
-| :-------------: | :-----: | :------: | :-----: | :---: | :------------: |
-|  Maciej Adamus  | WIMiIP  |    IS    |    4    |   1   |   2019/2020    |
-
 ## Projekt bazy danych
 ![schemat bazy danych](./schema.svg "Schemat bazy")
 
