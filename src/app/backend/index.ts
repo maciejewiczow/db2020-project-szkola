@@ -16,7 +16,7 @@ const createWindow = () => {
     });
 
     if (isDev) {
-        window.loadURL(`http://localhost:${process.env.FRONT_WEBPACK_PORT || 9080}`);
+        window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
         window.webContents.openDevTools();
     }
     else
