@@ -1,5 +1,8 @@
-import { getUserByEmail } from "./query";
+import { getUserByEmail, getUserTimetable } from "./query";
 
 export default {
-    getUserByEmail
+    getUserByEmail,
+    getUserTimetable
 };
+
+export { QueryResult } from './query'
