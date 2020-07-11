@@ -85,6 +85,9 @@ export const Input = styled(({ hasError, ...rest }) => <Form.Control {...rest} /
     &:focus {
         background: rgba(255,255,255,0.1);
         border-bottom-color: rgba(255,255,255,0.5);
+        ${({hasError}) => hasError && css`
+            border-color: rgba(86.3%, 20.8%, 27.1%, 1);
+        `}
         color: white;
     }
 `
