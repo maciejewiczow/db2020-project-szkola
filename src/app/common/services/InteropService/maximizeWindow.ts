@@ -15,7 +15,5 @@ export const register = () => {
     )
 }
 
-export const maximizeWindow = async () => {
-    // FIXME: this works only because of a change in electron-better-ipc method!! Will break at next npm install
-    await ipcRenderer.callMain(InteropEvents.maximize);
-}
+export const maximizeWindow = async () => await ipcRenderer.callMain(InteropEvents.maximize);
+
