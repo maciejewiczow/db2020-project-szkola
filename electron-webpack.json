@@ -1,7 +1,7 @@
 {
     "commonSourceDirectory": "src/app/common",
     "whiteListedModules": [
-      "react",
+        "react",
         "react-bootstrap",
         "react-dom",
         "react-icons",
@@ -12,12 +12,11 @@
         "redux-saga",
         "styled-components"
     ],
-
+    "title": "Szkoła",
     "main": {
-      "sourceDirectory": "src/app/backend"
+        "sourceDirectory": "src/app/backend"
     },
-
     "renderer": {
-      "sourceDirectory": "src/app/frontend"
+        "sourceDirectory": "src/app/frontend"
     }
 }
